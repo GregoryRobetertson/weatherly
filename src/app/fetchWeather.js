@@ -11,7 +11,7 @@ export const fetchWeather = async (city) => {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`
     );
-
+    console.log(response.data);
     return response.data;
   } catch (error) {
     throw new Error("Failed to fetch weather data! " + error.message);

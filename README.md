@@ -38,3 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## In this project I will be using reactjs to build a weather app that fetches data from an api.
 
 ## I am focus on deepening my understanding on Use state management.
+
+## On day 1 I focus on creating the file to fetch the weather data from open weather,
+
+## On day 2 i created the component folder and created a file to display the weather content.
