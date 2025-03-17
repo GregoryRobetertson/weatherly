@@ -54,6 +54,14 @@ export default function Weather() {
           </svg>
         </button>
       </form>
+      {weather && (
+        <div>
+          <h2>Weather in {weather.name}</h2>
+          <p>Feels like {weather.main.feels_like}</p>
+          <p>Humidity {weather.main.humidity}</p>
+          <p>Weather {weather.weather[0].description}</p>
+        </div>
+      )}
     </>
   );
 }
