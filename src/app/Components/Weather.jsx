@@ -34,32 +34,68 @@ export default function Weather() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search City"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="50"
-            height="50"
-            viewBox="0 0 50 50"
-          >
-            <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"></path>
-          </svg>
-        </button>
-      </form>
+      <div className="relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4  z-20">
+        <form
+          className="flex justify-between items-center w-full m-auto p-3 bg-transparent border  rounded-2xl"
+          onSubmit={handleSubmit}
+        >
+          {" "}
+          {/* Added onSubmit handler */}
+          <div>
+            <input
+              className="bg-transparent border-none focus:outline-none text-2xl placeholder:"
+              type="text"
+              placeholder="Search city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
+          <button className="" type="submit">
+            {" "}
+            {/* Changed to submit button */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="2rem"
+              height="2rem"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"
+              ></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+
       {weather && (
-        <div>
-          <h2>Weather in {weather.name}</h2>
-          <p>Feels like {weather.main.feels_like}</p>
-          <p>Humidity {weather.main.humidity}</p>
-          <p>Weather {weather.weather[0].description}</p>
+        <div className="max-w-sm mx-auto  rounded-lg overflow-hidden p-6">
+          <h2 className="text-2xl font-semibold text-center text-blue-500">
+            Weather in {weather.name}
+          </h2>
+          <div className="mt-4 space-y-3">
+            <p className="text-lg text-gray-700">
+              Feels like{" "}
+              <span className="font-medium text-blue-600">
+                {weather.main.feels_like}°C
+              </span>
+            </p>
+            <p className="text-lg text-gray-700">
+              Humidity{" "}
+              <span className="font-medium text-blue-600">
+                {weather.main.humidity}%
+              </span>
+            </p>
+            <p className="text-lg text-gray-700">
+              Weather{" "}
+              <span className="font-medium text-blue-600 capitalize">
+                {weather.weather[0].description}
+              </span>
+            </p>
+          </div>
         </div>
       )}
     </>
